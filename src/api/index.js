@@ -11,6 +11,7 @@ export function makeAjaxRequest(url, methodType, data){
            console.log("xhr done successfully");
            var resp = xhr.responseText;
            var respJson = JSON.parse(resp);
+           console.log(respJson);
            return respJson;
         } else {
           console.log("xhr failed");
@@ -22,10 +23,10 @@ export function makeAjaxRequest(url, methodType, data){
 }
 
 export function fetchTopStories(){
-  debugger;
-  ids = makeAjaxRequest(url, "GET", {}, fetchItem);
+  var url = baseURL + "topstories"
+  var ids = makeAjaxRequest(url, "GET", {}, fetchItem);
   console.log(items);
-  items = fetchItems(ids);
+  var items = fetchItems(ids);
   return items;
 }
 
